@@ -2,7 +2,7 @@
 
 module.exports = function (app) {
 
-    var Usuario = app.models.contato;
+    var Usuario = app.models.Usuario;
 
     var controller = {};
 
@@ -81,11 +81,11 @@ module.exports = function (app) {
 };
 
 /* Como buscar com filtro
-   Contato.find()
+   Usuario.find()
    .select("nome email")
    .where("email").equals(/cont/)
    .exec()
-   .then(funcrion(nomeEEmail) {
-       console.log(nomeEEmail);
+   .then(function(nomeEemail) {
+       console.log(nomeEemail);
    });
 */
