@@ -1,16 +1,16 @@
-// app/controllers/contato.js
+// app/controllers/usuario.js
 
 module.exports = function (app) {
 
-    var Contato = app.models.contato;
+    var Usuario = app.models.contato;
 
     var controller = {};
 
     controller.listaTodos = function (req, res) {
-        Contato.find().populate('emergencia').exec()
+        Usuario.find().exec()
             .then(
-            function (contatos) {
-                res.json(contatos);
+            function (usuarios) {
+                res.json(usuarios);
             },
             function (erro) {
                 console.error(erro);
@@ -19,13 +19,13 @@ module.exports = function (app) {
             );
     };
 
-    controller.obtemContato = function (req, res) {
+    controller.obtemUsuario = function (req, res) {
         var _id = req.params.id;
-        Contato.findById(_id).exec()
+        Usuario.findById(_id).exec()
             .then(
-            function (contato) {
-                if (!contato) throw new Error("Contato não encontrado");
-                res.json(contato);
+            function (usuario) {
+                if (!usuario) throw new Error("Usuário não encontrado");
+                res.json(usuario);
             },
             function (erro) {
                 console.log(erro);
@@ -34,10 +34,10 @@ module.exports = function (app) {
             );
     };
 
-    controller.removeContato = function (req, res) {
+    controller.removeUsuario = function (req, res) {
         var _id = req.params.id;
         console.log(_id);
-        Contato.remove({ "_id": _id }).exec()
+        Usuario.remove({ "_id": _id }).exec()
             .then(
             function () {
                 res.end();
@@ -48,17 +48,15 @@ module.exports = function (app) {
             );
     };
 
-    controller.salvaContato = function (req, res) {
+    controller.salvaUsuario = function (req, res) {
         var _id = req.body._id;
 
-        req.body.emergencia = req.body.emergencia || null;
-
         if (_id) {
-            Contato.findByIdAndUpdate(_id, req.body).exec()
+            Usuario.findByIdAndUpdate(_id, req.body).exec()
                 .then(
-                function (contato) {
-                    Contato.findById(_id);
-                    res.json(contato);
+                function (usuario) {
+                    Usuario.findById(_id);
+                    res.json(usuario);
                 },
                 function (erro) {
                     console.error(erro);
@@ -66,10 +64,10 @@ module.exports = function (app) {
                 }
                 );
         } else {
-            Contato.create(req.body)
+            Usuario.create(req.body)
                 .then(
-                function (contato) {
-                    res.status(201).json(contato);
+                function (usuario) {
+                    res.status(201).json(usuario);
                 },
                 function (erro) {
                     console.log(erro);

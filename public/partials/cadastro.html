@@ -1,0 +1,67 @@
+<!-- public/partials/cadastro.html -->
+<div class="jumbotron">
+    <h1 class="text-center">
+       Cadastro de Usuário
+    </h1>
+</div>
+</p>
+<!--Formulário de Cadastro de Usuário: Chama controller usuario.salva()-->
+<form ng-submit="salva()" ng-controller="CadastroController">
+    <!--Campo para Inserção do Nome do Usuário-->
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" required ng-model="usuario.nome">
+    </div>
+    <!--Campo para Inserção do Sobrenome do Usuário-->
+    <div class="form-group">
+        <label for="sobrenome">Sobrenome</label>
+        <input type="text" class="form-control" id="sobrenome" name="sobrenome" required ng-model="usuario.sobrenome">
+    </div>
+    <!--Campo para Inserção do Email/Login do Usuário-->
+    <div class="form-group">   
+        <label for="email">Email</label>
+        <div class="input-group">
+            <span class="input-group-addon">@</span>
+            <input type="email" class="form-control" id="login" placeholder="email@exemplo.com" name="login" required ng-model="usuario.login">
+        </div>
+    </div>
+    <!--Campo para Inserção do Nome de Usuário do Usuário-->
+    <div class="form-group">
+        <label for="usuario">Usuario</label>
+        <input type="text" class="form-control" id="usuario" name="usuario" required ng-model="usuario.usuario">
+    </div>
+    <!--Campo para Inserção da Senha do Usuário-->
+    <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" class="form-control" id="senha" name="senha" required ng-model="usuario.senha">
+    </div>
+    <!--Campo para Inserção da Confirmação da Senha do Usuário-->
+    <div class="form-group">
+        <label for="confsenha">Confirmação Senha</label>
+        <input type="password" class="form-control" id="confsenha" name="confsenha" ng-model="confsenha">
+    </div>
+    <!--Campo para Inserção da Data de Nascimento do Usuário-->
+    <div class="form-group">
+        <label for="nascimento">Data de Nascimento</label>
+        <input type="date" class="form-control" id="datanasc" name="datanasc" required ng-model="usuario.datanasc">
+    </div>
+    <!--Campo para Inserção do Cpf do Usuário-->
+    <div class="form-group">
+        <label for="cpf">Cpf</label>
+        <input type="text" class="form-control" id="cpf" name="cpf" required ng-model="usuario.cpf">
+    </div>
+    <!--Botão Submit-->
+    <div>
+        <button type="submit" class="btn btn-primary">
+            Salvar
+        </button>
+        <div>
+            {{mensagem}}
+            {{confsenha}}
+            {{senhaa}}
+            {{confsenhaa}}
+        </div>
+    </div>
+    <!--Link Botão Voltar -->
+    <a href="/" class="btn btn-default">Voltar</a>
+</form>

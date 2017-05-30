@@ -1,0 +1,21 @@
+<!-- public/partials/landing.html -->
+<h1 class="text-center">Faça Seu login!</h1>
+<form ng-submit="login()" ng-controller="MainController">
+    <div class="form-group">   
+        <label for="email">Email</label>
+        <div class="input-group">
+            <span class="input-group-addon">@</span>
+            <input type="email" class="form-control" id="login" placeholder="email@exemplo.com" name="login" required ng-model="usuario.login">
+        </div>
+        <label for="senha">Senha</label>
+        <div class="input-group">
+            <input type="password" class="form-control" id="senha" name="senha" required ng-model="usuario.senha">
+        </div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">
+            Login
+        </button>
+    </div>
+    <a ng-href="#/cadastro" class="btn btn-default">Cadastre-se</a>
+</form>
