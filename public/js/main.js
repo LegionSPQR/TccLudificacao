@@ -9,11 +9,12 @@ angular.module('ludificando', ['ngRoute','ngResource'])
         templateUrl: 'partials/contato.html',
         controller: 'ContatoController'
     })
-    .when('/contato', {
-        templateUrl: 'partials/contato.html',
-        controller: 'ContatoController'
+    .when('/cadastro', {
+        templateUrl: 'partials/cadastro.html',
+        controller: 'UsuarioController'
     })
     .otherwise({
-        redirectTo: '/contatos'
+        redirectTo: '/',
+        templateUrl: 'partials/login.html'
     });
 });

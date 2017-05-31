@@ -5,7 +5,7 @@ module.exports = function(app)
     
     app.route('/usuarios')
     .get(controller.listaTodos)
-    .post(controller.salvaUsuario);
+    .post(controller.cadastraUsuario);
 
     app.route('/usuarios/:id')
     .get(controller.obtemUsuario)

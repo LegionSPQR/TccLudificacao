@@ -6,7 +6,7 @@
 </div>
 </p>
 <!--Formulário de Cadastro de Usuário: Chama controller usuario.salva()-->
-<form ng-submit="salva()" ng-controller="CadastroController">
+<form ng-submit="salva()" ng-controller="UsuarioController">
     <!--Campo para Inserção do Nome do Usuário-->
     <div class="form-group">
         <label for="nome">Nome</label>
@@ -35,6 +35,9 @@
         <label for="senha">Senha</label>
         <input type="password" class="form-control" id="senha" name="senha" required ng-model="usuario.senha">
     </div>
+    <div ng-if="errosenha" style="color: darkred">
+        {{errosenha}}
+    </div>
     <!--Campo para Inserção da Confirmação da Senha do Usuário-->
     <div class="form-group">
         <label for="confsenha">Confirmação Senha</label>
@@ -55,11 +58,8 @@
         <button type="submit" class="btn btn-primary">
             Salvar
         </button>
-        <div>
+        <div ng-if="">
             {{mensagem}}
-            {{confsenha}}
-            {{senhaa}}
-            {{confsenhaa}}
         </div>
     </div>
     <!--Link Botão Voltar -->

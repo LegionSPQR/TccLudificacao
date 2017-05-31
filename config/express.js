@@ -9,7 +9,7 @@ module.exports = function() {
     var app = express();
     
     //Setando Variáveis de Ambiente
-    app.set('port', 3001);
+    app.set('port', 3000);
     app.set('view engine', 'ejs');
     app.set('views', './app/views');
     //Configurando Middleware

@@ -1,4 +1,4 @@
-// app/controllers/usuario.js
+// app/controllers/cadastro.js
 
 module.exports = function (app) {
 
@@ -48,19 +48,33 @@ module.exports = function (app) {
             );
     };
 
-    controller.cadastraUsuario = function (req, res) {
+    controller.salvaUsuario = function (req, res) {
         var _id = req.body._id;
 
-        Usuario.create(req.body)
-            .then(
-            function (usuario) {                    
-                res.status(201).json(usuario);    
-            },
-            function (erro) {
-                console.log(erro);
-                res.status(500).json(erro);
-            }
-            );
+        if (_id) {
+            Usuario.findByIdAndUpdate(_id, req.body).exec()
+                .then(
+                function (usuario) {
+                    Usuario.findById(_id);
+                    res.json(usuario);
+                },
+                function (erro) {
+                    console.error(erro);
+                    res.status(500).json(erro);
+                }
+                );
+        } else {
+            Usuario.create(req.body)
+                .then(
+                function (usuario) {
+                    res.status(201).json(usuario);
+                },
+                function (erro) {
+                    console.log(erro);
+                    res.status(500).json(erro);
+                }
+                );
+        }
     };
 
     return controller;
